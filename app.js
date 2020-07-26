@@ -113,7 +113,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 //session
-app.use(session({
+app.use(require("express-session")({
   secret: 'doraemon',
   resave: false, 
   saveUninitialized: false,
@@ -170,7 +170,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(8800, function(){
-  console.log("server running");
-})
+app.listen(process.env.PORT , process.env.IP,function(){
+  console.log("SnCart Server Started");
+  console.log(process.env.PORT);
+});
 module.exports = app;
