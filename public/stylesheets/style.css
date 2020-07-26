@@ -91,7 +91,7 @@ ul.gallery li{
 }
 
 
-footer {
+#footer {
   
   position: relative;
   height: 50px;
@@ -118,32 +118,7 @@ table.alignmiddle td{
 }
 
 
-buynow{
-  height: 40px;
-    width: 120px;
-    vertical-align: middle !important;
-    line-height: 85px;
-  }
 
-
-  @media screen and (max-width: 1550px) {
-    
-
-   
-  
-  }
-
-  @media screen and (max-width: 1550px) {
-
-
-  }
-
- 
-  
-
-@media screen and (max-width: 1100px) {
-  
-}
 @media screen and (max-width: 1000px) {
 
   .car img{

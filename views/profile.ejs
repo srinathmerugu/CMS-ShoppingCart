@@ -53,7 +53,8 @@
 </div>
 
 <hr>
-
+<div class="row text-center" style="margin: 0 auto;">
+    <div id="profile" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5 text-center">
     
 <% if(orders.length > 0) { %>
 <h1 class="mt-5 mb-5 font-weight-light " style=" margin: 0 auto;"><%=user.username%>'s ORDERS</h1>
@@ -87,15 +88,21 @@
           <% }); %>
         </tbody>
     </table>
+    
     <% } else {%>
-        <hr>
-        <div class="mt-5">
-        <h3 class="text-center font-weight-light">No Orders</h3>
-        <div class="text-center mt-5">
-        <a class="btn btn-primary btn-lg" href="/products">Add Products</a>
-    </div>
-        <% } %>
+        
+      
+        
+        <div>
 
+        </div>
+        <h3 class="text-center font-weight-light">No Orders</h3>
+        <div class="text-center mt-2  ">
+            <a class="btn btn-primary btn-lg" href="/products">Add Products</a>
+        
+        <% } %>
+        </div>
+        
 
 
 <script>
@@ -109,4 +116,22 @@
 });
 </script>       
 
-<%- include("partials/footer") %>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/main.js"></script> 
+</body>
+</html>
