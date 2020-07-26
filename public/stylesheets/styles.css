@@ -175,6 +175,6 @@ nav ul li a span.rotate{
   
 }
 .sidebar{
-  z-index: 5;
+  z-index: 100;
 }
 }
