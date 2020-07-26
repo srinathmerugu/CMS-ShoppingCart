@@ -59,8 +59,6 @@ nav a:hover
   background: #1b1b1b;
   transition: left 0.4s ease;
   overflow:   scroll;
-  -webkit-transform: translate3d(0,0,1px);
-transform: translate3d(0,0,1px);
 }
 .sidebar::-webkit-scrollbar {
     width: 0px;
@@ -177,9 +175,18 @@ nav ul li a span.rotate{
   line-height: 32px;
   
 }
-.sidebar{
-  z-index: 100;
-  -webkit-transform: translate3d(0,0,1px);
-transform: translate3d(0,0,1px);
+.sidebar {
+  z-index: 90;
+  
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  left: -250px;
+  background: #1b1b1b;
+  transition: left 0.4s ease;
+  overflow:   scroll;
+  -webkit-transform: translate3d(5px,5px,5px);
+transform: translate3d(5px,5px,5px);
 }
 }
