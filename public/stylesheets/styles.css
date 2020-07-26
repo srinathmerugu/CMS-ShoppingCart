@@ -177,7 +177,8 @@ nav ul li a span.rotate{
 }
 .sidebar {
   z-index: 90;
-  -webkit-transform: translate3d(0px,0px,0px);
-transform: translate3d(0px,0px,0px);
+  position: fixed;
+  -webkit-transform: translate3d(0,0,0);
+transform: translate3d(0,0,0);
 }
 }
