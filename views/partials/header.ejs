@@ -93,16 +93,6 @@
 </ul>
 </li>
 <%} else {%>
-<li><a href="/cart/checkout"><i class="fas fa-cart-plus"></i> Cart
-
-<% if(typeof cart !== "undefined") { %>
-  <span ><%=cart.length%></span>
-  <%} else {%>
-  <span > 0 </span>
-  <% } %>
-
-</a>
-</li>
 <li><a href="/users/register">Sign Up</a></li>
 <li><a href="/users/login">Sign In</a></li>
 <% } %>
