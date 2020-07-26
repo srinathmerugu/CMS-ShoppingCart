@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Sn Cart</title>
+  <script src="https://kit.fontawesome.com/93c2900367.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+
+</head>
+
+<body>
+  
+  <div id="ham" class="ham">
+    <span class="fas fa-bars " ></span>
+  </div>
+<nav class="sidebar">
+  <%if(user) {%>
+    <div class="text">Hi <%=user.username%></div>
+<%} else {%>
+  <div class="text">SnCart</div>
+  <%}%>
+<ul>
+
+  <form action="/products" method="GET" class="form-inline">
+    <div id="searchdiv" class="form-group " >
+        <input type="text" id="searchinput" name="search" placeholder="Search for products.." class="form-control" >
+        <button id="searchbtn" class="btn btn-sm btn-success ml-1" ><i class="fas fa-search"></i></button>
+    </div>
+</form>
+  
+<li class="actives"><a href="/">SnCart</a></li>
+<li >
+
+        <a href="#" class="feat-btn">Features
+          <span class="fas fa-caret-down first"></span>
+        </a>
+        <% pages.forEach(function(page){ %>
+          <% if(page.slug == "home") { %>
+        <ul class="feat-show">
+<li><a href="/"><%= page.title %></a></li>
+<% } else { %>
+<li><a href="/<%= page.slug %>"><%= page.title %></a></li>
+<% } %>
+<% }); %>
+<li><a href="/contact">Contact Us</a></li>
+</ul>
+
+</li>
+
+<li>
+<a href="#" class="pro-btn">Products
+<span class="fas fa-caret-down third"></span>
+</a>
+<ul class="pro-show">
+<li><a href="/products">All Products</a></li>
+<% categories.forEach(function(c){ %>
+<li><a href="/products/<%= c.slug %>"><%= c.title %></a></li>
+<% }); %>
+
+</ul>
+</li>
+
+<li>
+
+
+
+
+
+
+
+
+
+<% if(user) { %>
+        <a href="#" class="serv-btn"><i class="fas fa-user"></i> <%=user.username%>
+          <span class="fas fa-caret-down second"></span>
+        </a>
+        <ul class="serv-show">
+<li><a href="/users/profile/<%= user.id%>"><i class="fas fa-user-cog"></i> My Profile</a></li>
+<li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+</ul>
+</li>
+<%} else {%>
+<li><a href="/cart/checkout"><i class="fas fa-cart-plus"></i> Cart
+
+<% if(typeof cart !== "undefined") { %>
+  <span ><%=cart.length%></span>
+  <%} else {%>
+  <span > 0 </span>
+  <% } %>
+
+</a>
+</li>
+<li><a href="/users/register">Sign Up</a></li>
+<li><a href="/users/login">Sign In</a></li>
+<% } %>
+
+
+<li><a href="/cart/checkout"><i class="fas fa-cart-plus"></i> Cart
+
+  <% if(typeof cart !== "undefined") { %>
+    <span ><%=cart.length%></span>
+    <%} else {%>
+    <span > 0 </span>
+    <% } %>
+  
+  </a>
+  </li>
+
+
+<% if(user && user.admin ==1) { %>
+<li><a href="/admin/pages"><i class="fas fa-tools"></i> Dashboard</a></li>
+<% } %>
+</ul>
+</nav>
+<div class="content">
+  <div class="header">
+</div>
+
+</div>
+<script>
+  $('.ham').click(function(){
+    $(this).toggleClass("click");
+    $('.sidebar').toggleClass("show");
+  });
+    $('.feat-btn').click(function(){
+      $('nav ul .feat-show').toggleClass("show");
+      $('nav ul .first').toggleClass("rotate");
+    });
+    $('.pro-btn').click(function(){
+      $('nav ul .pro-show').toggleClass("show3");
+      $('nav ul .third').toggleClass("rotate");
+    });
+    $('.serv-btn').click(function(){
+      $('nav ul .serv-show').toggleClass("show1");
+      $('nav ul .second').toggleClass("rotate");
+    });
+    $('nav ul li').click(function(){
+      $(this).addClass("actives").siblings().removeClass("actives");
+    });
+  </script>
+
+  <div class="container" id="cont">
+    <%- messages('messages', locals) %>
+
+    <% if (errors) { %>
+    <% errors.forEach(function(error) { %>
+    <div id="alertbox" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+      <p> <%= error.msg %> </p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <% }); %>
+    <% } %>
+
+    

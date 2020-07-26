@@ -1,0 +1,112 @@
+<%- include("partials/header") %>
+<h4 class="text-center  font-weight-light font-italic"><%= user.username.toUpperCase() %>'s PROFILE</h4>
+
+<hr class="text-center" style="width: 300px; margin: 0 auto;">
+<div class="row text-center">
+	<div id="profile" class="col-sm-12 col-md-12 col-lg-12 text-center d-flex justify-content-center">
+        <div class=" mt-5" style="width: 18rem; margin: 0 auto;">
+            
+            <% if ( !user.avatar && !user.email) { %>
+                    <img class="card-img-top" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="avatar">
+                    <div class="card-body">
+                        <div class=" card-title text-center  col-md-12">
+                        <!-- Show User Name  -->
+                            <% if(!user.name) { %>
+                            <h3 class="text-capitalize "><%= user.username %></h3>
+                            <% } else { %>
+                            <h3 class="text-capitalize"><%= user.name%></h3>
+                            <% } %>
+                        </div>
+                        <p class="card-text">User Doesn't Have An Email!!</p>
+                    </div>
+
+                        
+        </div>
+            <% } else { %>
+                <div id="profilecard" class="card">
+                    <%if(user.gender == "male"){%>
+                    <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" class="card-img-top" alt="...">
+                    <%} else {%>
+                        <img src="/images/femaleavatar.jpg" class="card-img-top" alt="">
+                        <%}%>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= user.name%></h5>
+                        <h6 class="card-title"><%= user.gender.toUpperCase()%></h6>
+                        <p class="card-text" ><%= user.phone %></p>
+                        <p class="card-text" ><a href="mailto: <%= user.email %>"><%= user.email %></a></p>
+                     <% if(user && user._id.equals(user._id)){ %>
+                        <a href="/users/profile/<%=user._id%>/edit" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                        <form id="delete" class="delete-form" action = "/users/profile/<%= user._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-danger confirmDelete"><i class="fas fa-trash-alt"></i> Delete Profile</button>
+                        </form>
+
+                        <% }; %>
+                    </div>
+                </div>
+            <% } %>
+
+
+
+
+            
+    </div>
+</div>
+
+<hr>
+
+    
+<% if(orders.length > 0) { %>
+<h1 class="mt-5 mb-5 font-weight-light " style=" margin: 0 auto;"><%=user.username%>'s ORDERS</h1>
+    <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th scope="col">S.No</th>
+            <th scope="col">Product</th>
+            <th scope="col">Title</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Pricex1</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+            <% var total = 0 %>
+            <% var count = 1 %>
+            <% orders.forEach(function(order,count) {%>
+                <% var sub = (order.cart[0].qty * order.cart[0].price) %>
+                <% total=+sub %> 
+          <tr class="text-center">
+            <th scope="row"><%=count%></th>
+            <td><img src="<%=order.cart[0].image%>" alt="" width="100px" height="100px"></td>
+            <td><%=order.cart[0].title%></td>
+            <td><%=order.cart[0].qty%></td>
+            <td>₹<%=order.cart[0].price%></td>
+            <td> Rs.<%=total %></td>
+          </tr>
+          
+          <% }); %>
+        </tbody>
+    </table>
+    <% } else {%>
+        <hr>
+        <div class="mt-5">
+        <h3 class="text-center font-weight-light">No Orders</h3>
+        <div class="text-center mt-5">
+        <a class="btn btn-primary btn-lg" href="/products">Add Products</a>
+    </div>
+        <% } %>
+
+
+
+<script>
+    $(function(){
+   
+   $('button.confirmDelete').on('click', function(){
+        if(!confirm('Confirm Deletion?'))
+        return false;
+   });
+  
+});
+</script>       
+
+<%- include("partials/footer") %>

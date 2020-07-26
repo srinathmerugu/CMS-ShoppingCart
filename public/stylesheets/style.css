@@ -1,0 +1,368 @@
+
+.container {
+  padding-top: 40px;
+ padding-bottom:30px;
+ height: 100vh;
+
+  
+}
+#profilecard{
+  width: 280px;
+  margin: 0 auto;
+}
+#crd{
+  height : 362px;
+   width : 306px;
+   align-items: center;
+   background-color: #f7f3f3 ;
+   border :none;
+   color:black;
+   text-decoration: none;
+   display: inline-block;
+}
+
+#bat{
+        
+         border:5px solid rgb(204, 203, 203);
+         margin-left: auto;
+         margin-right: auto;
+              
+              transform: rotateY(20deg);
+              transform: rotateX(20deg);
+           border-radius: 100%;
+            height: 302px;
+            width: 280px;
+
+}
+
+#cont{
+  transition: 0.5s;
+}
+#searchdiv{
+  margin: 0 auto; 
+  position: relative;
+}
+#searchbtn{
+  position: absolute; 
+  right: 5px; 
+  z-index:2
+}
+
+#searchinput{
+  width: 100%;
+}
+
+#cards{
+  width: 220px;
+  height: 300px;
+  align-items: center;
+}
+#cards img{
+  padding-top: 8px;
+  width: 200px;
+  height: 200px;
+}
+
+#cards p{
+  color: #7f7f7f;
+}
+
+img.spi{
+  width: 100%;
+  align-items: center;
+  padding: 5px;
+
+}
+
+ul.gallery li{
+  margin: 20px;
+  list-style: none;
+  display: inline-block;
+}
+
+.cart{
+  
+  margin:0 auto;
+
+}
+
+#delete{
+  display: inline;
+}
+
+
+footer {
+  
+  position: relative;
+  height: 50px;
+  
+}
+
+img.cpi{
+  width: 100px;
+  height : 100px;
+}
+
+table.alignmiddle td{
+  vertical-align: middle !important;
+}
+
+
+
+#alertbox{
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+ 
+}
+
+
+buynow{
+  height: 40px;
+    width: 120px;
+    vertical-align: middle !important;
+    line-height: 85px;
+  }
+
+
+  @media screen and (max-width: 1550px) {
+    
+
+   
+  
+  }
+
+  @media screen and (max-width: 1550px) {
+
+
+  }
+
+ 
+  
+
+@media screen and (max-width: 1100px) {
+  
+}
+@media screen and (max-width: 1000px) {
+
+  .car img{
+    width: 800px;
+    height: 300px;
+  }
+
+
+}
+
+@media screen and (max-width: 900px) {
+  #cards {
+   width: 100%;
+   margin-left:0px;
+  }
+  #cards img{
+    padding-top: 8px;
+    width: 150px;
+    height: 150px;
+    }
+    
+    .car img{
+      width: 800px;
+      height: 300px;
+      
+    }
+  
+  
+}
+
+@media screen and (max-width: 820px) {
+  
+  #cards {
+    
+    margin-left:auto;
+   width: 80%;
+   }
+  
+
+  .car img{
+    width: 700px;
+    height: 250px;
+    
+  }
+}
+
+
+
+
+@media screen and (max-width: 775px) {
+  #cards {
+    
+    margin-left:auto;
+   
+   }
+   .cart{
+    margin-left:0px;
+    width: 50%;
+   }
+   
+  td.qty{
+    padding-top: 5px;
+    margin-top: 5px !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .car img{
+    width: 600px;
+    height: 230px;
+    
+  }
+  #crd{
+    width: 250px;
+    height: 200px;
+  }
+  #bat{
+    width: 200px;
+    height:180px
+  }
+  #crd h2{
+    font-size: 18px;
+  }
+  .carousel-indicators{
+    display: none;
+  }
+  .cart{
+    width: 50%;
+    margin-left: 0px;
+    font-size: small;
+  }
+ 
+
+}
+
+@media screen and (max-width: 576px) {
+  #cards img{
+    margin-left: 0px;
+    margin-right: 50px;
+    width: 200px;
+    height: 200px;
+    
+  }
+  #cardsbody h5{
+    margin-left: 0px;
+    margin-right: 50px;
+  }
+  #cardsbody p{
+    margin-left: 0px;
+    margin-right: 50px;
+  }
+  #cardsbody a{
+    margin-left: 0px;
+    margin-right: 50px;
+  }
+  .car img{
+    width: 500px;
+    height: 200px;
+    
+  }
+  .cart{
+    width: 30%;
+    margin-left: 0px;
+    font-size: 12px;
+  }
+  .cart .btn-danger{
+    width: 50px;
+    height: 20px;
+    margin: 0 auto;
+    padding: 0;
+   line-height: 1.1em;
+    text-align: center;
+  
+  }
+  .cart span{
+    font-size: 12px;
+    text-align: center;
+  }
+  #h3{
+    font-size: 20px;
+  }
+  #searchbtn{
+    position: absolute; 
+    top:4px;
+    right: 5px; 
+    z-index:2
+  }
+  #proimg{
+    height: 400px;
+    width: 300px;
+    
+  }
+
+ 
+}
+
+@media screen and (max-width: 530px) {
+  .cart table{
+    width: 200px;
+    margin-left: 0px;
+    font-size: 12px;
+  }
+  #crd{
+    width: 200px;
+    height: 150px;
+  }
+  #bat{
+    width: 150px;
+    height:130px
+  }
+  #crd h2{
+    font-size: 16px;
+  }
+  #profile{
+    margin: 0 auto;
+    margin-left: 10px;
+    }
+    
+    
+}
+
+@media screen and (max-width: 450px) {
+ 
+  .car img{
+    width: 400px;
+    height: 200px;
+    
+  }
+  #crd{
+    width: 150px;
+    height: 120px;
+  }
+  #bat{
+    width: 100px;
+    height:100px
+  }
+  #crd h2{
+    font-size: 14px;
+  }
+  #profile{
+    margin: 0 auto;
+    margin-left: 60px;
+    }
+
+}
+
+
+@media screen and (max-width: 370px) {
+  
+  .car img{
+    width: 300px;
+    height: 200px;
+    
+  }
+  
+  
+}
+
+
+
+
+

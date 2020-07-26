@@ -1,0 +1,16 @@
+<%- include("../partials/admin_header") %>
+
+<h2 class="text-center">Edit Category</h2>
+<a href="/admin/categories" class="btn btn-primary"><i class="fas fa-arrow-left"></i> All Categories</a>  
+<br> <br> 
+<form action="/admin/categories/edit-category/<%= id %>" method="POST">
+
+    <div class="form-group" >
+        <label for="">Title</label>
+        <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">  
+    </div>
+
+    <button class="btn btn-dark">Update</button>
+</form> 
+
+<%- include("../partials/admin_footer") %>

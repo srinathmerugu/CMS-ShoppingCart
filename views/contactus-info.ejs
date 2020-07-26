@@ -1,0 +1,27 @@
+<%- include("partials/admin_header") %>
+
+
+    <h1 class="text-center font-weight-light">Users Feedbacks</h1>
+  
+
+<table class="table table-bordered">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">User</th>
+        <th scope="col">Email</th>
+        <th scope="col">Feedback</th>
+      </tr>
+    </thead>
+
+    <tbody >
+        <%info.forEach(function(contact) {%>
+      <tr class="text-center">
+        <th scope="row"><%=contact.username%></th>
+        <td><%=contact.email%></td>
+        <td><%=contact.textarea%></td>
+      </tr>
+      <% }); %>
+    </tbody>
+</table>
+
+<%- include("partials/footer") %>

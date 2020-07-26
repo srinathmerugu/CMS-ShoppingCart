@@ -1,0 +1,26 @@
+<%- include("../partials/admin_header") %>
+
+<h2 class="text-center">Categories</h2>
+<a href="/admin/categories/add-category" class="btn btn-primary"><i class="fas fa-plus"></i> Category</a>  
+<br> <br> 
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody class="shadow-lg p-3 mb-5 bg-white rounded" >
+      <% categories.forEach(function(cat){ %>
+            <tr>
+            <th class="lead" scope="row"><%=cat.title%></th>
+            <td> <a href="/admin/categories/edit-category/<%=cat._id%>" class="btn btn-sm btn-info">Edit</a> </td>
+            <td><a class="confirmDelete btn btn-sm btn-danger " href="/admin/categories/delete-category/<%=cat._id%>" >Delete</a> </td>
+            </tr>
+      <% }); %>
+    </tbody>
+    </table>
+
+    
+<%- include("../partials/admin_footer") %>

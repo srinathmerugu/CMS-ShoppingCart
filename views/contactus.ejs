@@ -1,0 +1,77 @@
+<%- include("partials/header") %>
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <h2 class="text-center  font-weight-light">We’d love to hear from you</h2>
+    <p class="text-center lead">Whether you have a question about features, trials, pricing, or anything
+      else, our team is ready to answer all your questions</p>
+    <h4 class="text-center mt-4"><i class="fas fa-phone-alt"></i> Sales Enquiries <h4>
+    <hr>
+    <p class="lead">Interested in any of our products? Talk to our experts today</p>
+    <p class="lead">Email:<a href="mailto: yelpcamp.srinathmerugu@gmail.com?Subject=YelpCampFeedback">yelpcamp.srinathmerugu@gmail.com</a></p>
+    <p class="lead">Email:<a href="mailto: srinathmerugu777@gmail.com?Subject=EventAppFeedback">srinathmerugu777@gmail.com</a></p>
+    <h4 class="text-center  font-weight-light"> CONNECT WITH US</h4>
+    <ul class="text-center" style="font-size: 34px;">
+      <a style="text-decoration: none !important;" href="https://www.instagram.com/srinathmerugu/" rel=""
+        target="_blank">
+        <img class="mb-2" style="width: 34px;height: 35px;"
+          src="https://www.freepnglogos.com/uploads/instagram-logos-png-images-free-download-2.png"
+          alt="instagram icon">
+      </a>
+      <a style="text-decoration: none !important;" href="https://www.facebook.com/SuperboYSrinatH" rel=""
+        target="_blank"><i class="fab fa-facebook-square" style="color:#3b5998; ;display: inline;"></i>
+      </a>
+      <a style="text-decoration: none !important;" href="https://www.twitter.com/imsrinath7" rel="" target="_blank"><i
+          class="fab fa-twitter-square" style="color:#00acee; ;display:inline;"></i>
+        </a>
+      <a style="text-decoration: none !important;" href="https://www.github.com/srinathmerugu" rel="" target="_blank"><i
+          class="fab fa-github-square" style="color:black; ;display:inline;"></i>
+        </a>
+
+    </ul>
+    <hr class=" d-lg-none d-md-none ">
+  </div>
+
+
+
+
+  <div class="col-sm-12 col-md-6 col-lg-6" style="padding-bottom: 30px;">
+    <h2 class="text-center font-weight-light ">WRITE TO US</h2>
+    <div class="former text" style="margin: 0 auto; width: 300px;">
+      <form action="/contact" method="post"> 
+          
+          
+          <div class="form-group">
+            <label for="username">Username</label> 
+            <input class="form-control"  name="contact[username]" type="text" placeholder="Username" required>  
+          </div>
+         
+            <div class="form-group">
+              <label for="email">Email</label> 
+              <input class="form-control"  name="contact[email]" type="email" placeholder="Email" required>  
+            </div>
+           
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Write To Us</label>
+            <textarea class="form-control" name="contact[textarea]" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-success mb-2">Submit</button>
+      </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<%- include("partials/footer") %>

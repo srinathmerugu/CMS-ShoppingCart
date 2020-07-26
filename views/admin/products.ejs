@@ -1,0 +1,45 @@
+<%- include("../partials/admin_header") %>
+
+<h2 class="text-center">My Products</h2>
+<a href="/admin/products/add-product" class="btn btn-primary"><i class="fas fa-plus"></i> New Product</a>  
+<br> <br> 
+
+<% if (count>0) { %>
+
+<table class="table sorting alignmiddle">
+  <thead class="thead-dark">
+    <tr class="home">
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col">Category</th>
+      <th scope="col">Image</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody class="shadow-lg p-3 mb-5 bg-white rounded">
+      <% products.forEach(function(product){ %>
+            <th scope="row"><%=product.title%></th>
+            <td class="lead ">₹<%=parseFloat(product.price).toFixed(2) %></td>
+            <td class="lead"><%=product.category%></td>
+            <td class="lead">
+                <% if(product.image == "") { %>
+                  <img id="noimage" src="/images/noimage.png">
+                <% } else { %>
+                <img id="noimage" src="/images/product_imgs/<%=product._id%>/<%=product.image%>" alt="img"/>
+                <% } %>
+                </td>
+            <td> <a href="/admin/products/edit-product/<%=product._id%>" class="btn btn-sm btn-info">Edit</a> </td>
+             <td><a class="confirmDelete btn btn-sm btn-danger" href="/admin/products/delete-product/<%=product._id%>" >Delete</a> </td>
+            </tr>
+      <% }); %>
+    </tbody>
+    </table>
+    <% } else { %>
+      <h3 class="text-center  font-weight-light">No Products</h3>
+      <% } %>
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+      </div>
+<%- include("../partials/admin_footer") %>

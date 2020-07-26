@@ -1,0 +1,68 @@
+<%- include("partials/header") %>
+<h3 id="h3" class="text-center font-weight-light p-0" style="margin: 0 auto">SHOPPING BAG</h3>
+<br>
+<br>
+<div class="row ">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+  
+<%if(typeof cart !== "undefined") { %>
+
+<div class="cart text-center ">
+  <table class="table alignmiddle">
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th scope="col">Order</th>
+        <th scope="col">Product</th>
+        <th class="ml-5" scope="col">Price</th>
+        <th class="text-center" scope="col">Quantity</th>
+        <th scope="col"></th>
+        <th scope="col">SubTotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% var total = 0 %>
+      <% cart.forEach(function(product) { %>
+      <% var sub = (product.qty * product.price) %>
+      <% total+=+sub %>
+      <tr class="text-center">
+        <th scope="row"> <img class="cpi" src="<%=product.image%>" alt=""> </th>
+        <td><%=product.title%></td>
+        <td>₹<%=product.price%></td>
+        <td class="qty">
+
+          <a class="ml-2" href="/cart/update/<%=product.title%>?action=subtract"><i style="color: black;"
+              class="fas fa-minus"></i></a>&nbsp;
+          <%=product.qty%>
+          <a class="ml-1" href="/cart/update/<%=product.title%>?action=add"><i style="color: black;"
+              class="fas fa-plus"></i></a>&nbsp;
+
+        </td>
+        <td class="remove">
+          <a class="btn btn-sm btn-danger" href="/cart/update/<%=product.title%>?action=remove"> <span>Remove</span> </a>&nbsp;
+        </td>
+        <td>Rs.<%=sub%></td>
+      </tr>
+      <% }); %>
+      <tr>
+        <td colspan="6" align="right"> <b>Total:</b> Rs.<%=total %> </td>
+      </tr>
+      <tr>
+        <td> <a class="btn btn-sm btn-primary buynow" href="/cart/buynow"> <span>CHECKOUT</span> </a> </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<%} else { %>
+<h3 class="text-center font-weight-light">No Products In The Cart</h3>
+<div class="text-center mt-5">
+  <a class="btn btn-primary btn-lg" href="/products">Add Products</a>
+</div>
+<% } %>
+
+</div>
+</div>
+<%- include("partials/footer") %>

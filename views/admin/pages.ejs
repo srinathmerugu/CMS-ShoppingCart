@@ -1,0 +1,45 @@
+<%- include("../partials/admin_header") %>
+
+<h2 class="text-center">My Pages</h2>
+<a href="/admin/pages/add-page" class="btn btn-primary"><i class="fas fa-plus"></i> New Page</a>  
+<br> <br> 
+<table class="table sorting">
+  <thead class="thead-dark">
+    <tr class="home">
+      <th scope="col">Title</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody class="shadow-lg p-3 mb-5 bg-white rounded">
+      <% pages.forEach(function(page){ %>
+            <tr id="id_<%=page._id%>" class="<%=page.slug%>">
+            <th scope="row"><%=page.title%></th>
+            <td class="lead"> <a href="/admin/pages/edit-page/<%=page._id%>" class="btn btn-sm btn-info">Edit</a> </td>
+                <% if(page.slug == "home") { %>
+                    <td></td>
+                <% } else { %>
+                    <td class="lead"><a class="confirmDelete btn btn-sm btn-danger" href="/admin/pages/delete-page/<%=page._id%>" >Delete</a> </td>
+                <% } %>
+            </tr>
+      <% }); %>
+    </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+    
+    <script>
+       $('tbody').sortable({
+        items: "tr:not('.home')",
+        placeholder: "ui-state-hightlight",
+        update: function () {
+            var ids = $('tbody').sortable("serialize");
+            var url = "/admin/pages/reorder-pages";
+            
+            $.post(url, ids);
+        }
+    });
+    </script>
+    
+<%- include("../partials/admin_footer") %>

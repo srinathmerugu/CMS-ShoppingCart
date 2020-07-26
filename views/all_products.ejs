@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+<h1 class="text-center font-weight-light p-0 mb-5">PRODUCTS</h1>
+
+<div class="row text-center" style="margin: 0 auto;" >
+    <div class="col-xl-12">
+        <% if(noMatch !== null) { %>
+        <h3 class="font-weight-light"><%= noMatch %></h3>
+        <p>
+            <form action="/products" method="GET" class="form-inline">
+                <div id="searchdiv" class="form-group " >
+                    <input type="text" id="searchinput" name="search" placeholder="Search for products.." class="form-control" >
+                    <button id="searchbtn" class="btn btn-sm btn-success ml-1" ><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+       </p>
+        <% } %>
+    </div>
+</div>
+
+<div class="row products text-center ">
+    <%products.forEach(function(p){ %>
+        
+        <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-5">
+            <div id="cards" class="">
+                <a href="/products/<%=p.category%>/<%=p.slug%>" class="pa">
+                    <img src="/images/product_imgs/<%=p.id%>/<%=p.image%>" class="card-img-top" alt="...">
+                </a>
+                <div id="cardsbody" class="card-body">
+                  <h5 class="card-title"><%=p.title%></h5>
+                  <p class="card-text">₹<%=parseFloat(p.price).toFixed(2)%></p>
+                  <a href="/products/<%=p.category%>/<%=p.slug%>" class="btn btn-sm btn-primary mt-0">View Details</a>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+<%- include("partials/footer") %>

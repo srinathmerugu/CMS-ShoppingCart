@@ -1,0 +1,21 @@
+<%- include("partials/header") %>
+<h1 class="text-center font-weight-light p-0 mb-5"><%=title.toUpperCase()%></h1>
+<div class="row products text-center ">
+    <%products.forEach(function(p){ %>
+        
+        <div class=" col-xl-3 col-lg-4 col-md-5 col-sm-6 mb-5">
+            <div id="cards" >
+                <a href="/products/<%=p.category%>/<%=p.slug%>" class="pa">
+                    <img src="/images/product_imgs/<%=p.id%>/<%=p.image%>" class="card-img-top" alt="...">
+                </a>
+                <div id="cardsbody" class="card-body">
+                  <h5 class="card-title"><%=p.title%></h5>
+                  <p class="card-text">₹<%=parseFloat(p.price).toFixed(2)%></p>
+                  <a href="/products/<%=p.category%>/<%=p.slug%>" class="btn btn-sm btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+<%- include("partials/footer") %>
