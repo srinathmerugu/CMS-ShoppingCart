@@ -175,6 +175,6 @@ app.use(function(err, req, res, next) {
 // });
 
 app.listen(process.env.PORT , process.env.IP,function(){
-  console.log("YelpCamp Server Started");
+  console.log("SnCart Server Started");
 });
 module.exports = app;

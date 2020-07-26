@@ -182,7 +182,4 @@ nav ul li a span.rotate{
   -webkit-transform: translate3d(0,0,1px);
 transform: translate3d(0,0,1px);
 }
-.sidebar::-webkit-transform{
-  transform: translate3d(0,0,1px);
-} 
 }
