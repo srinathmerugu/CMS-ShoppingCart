@@ -4,6 +4,7 @@ var router = express.Router();
 var Product         = require('../models/products');
 var Category        = require('../models/category');
 var Order   = require('../models/order');
+const nodemailer            = require("nodemailer");
 
 var auth            = require('../config/auth');
 var isUser          = auth.isUser;
@@ -105,6 +106,9 @@ router.get('/update/:product', function (req, res) {
 router.get('/buynow',isUser, function (req, res) {
 
     var cart = req.session.cart;
+    var total = 0
+    var sub = (cart[0].qty * cart[0].price)
+    var total=+sub;
     //var slug = req.params.product;
     var order = new Order({
         user : req.user,
@@ -118,8 +122,39 @@ router.get('/buynow',isUser, function (req, res) {
         delete req.session.cart;
         req.flash('success', 'Order Placed');
         res.redirect('/');
-   
+       
+        
     });
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+               user: "yelpcamp.srinathmerugu@gmail.com",
+               pass: "yelpcamp777"
+           }
+       });
+       const mailOptions = {
+         from: "yelpcamp.srinathmerugu@gmail.com", // sender address
+         to: req.user.email, // list of receivers
+         subject: 'Order Placed Successfully',
+           text:"Hello " + req.user.username+ "," + '\n' + "Thanks for shopping with us" + '\n' + 
+            "We really appreciate you coming in today. Have a great day :)" + '\n' +
+            "Your Order-id: #" +order._id+   '\n' +
+            "Product: "+cart[0].title+   '\n' +
+            "Quantity: "+cart[0].qty+  '\n' +
+            "Price x 1: "+cart[0].price+   '\n' +
+            "Total: "+total+   '\n' +
+            "Regards" + '\n' +
+            " TEAM SnCart" 
+            
+            
+       };
+       
+       transporter.sendMail(mailOptions, (err, data) => {
+           if (err) {
+               return console.log('Error occurs');
+           }
+           return  console.log('Email sent!!!');
+       });
    
 
 });

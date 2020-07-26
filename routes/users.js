@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var bcrypt = require('bcryptjs');
 var Order   = require('../models/order');
+const nodemailer            = require("nodemailer");
 
 var auth            = require('../config/auth');
 var isUser          = auth.isUser;
@@ -159,10 +160,37 @@ router.post('/register', function (req, res, next) {
                         });
                     });
                 });
+                var transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                           user: "yelpcamp.srinathmerugu@gmail.com",
+                           pass: "yelpcamp777"
+                       }
+                   });
+                   const mailOptions = {
+                     from: "yelpcamp.srinathmerugu@gmail.com", // sender address
+                     to: req.body.email, // list of receivers
+                     subject: 'Welcome To SnCart',
+                       text:"Hello " + req.body.username+ "," + '\n' + "Welcome To SnCart!" + '\n' + 
+                        "We really appreciate you coming in today. Have a great day :)" + '\n' +
+                        " TEAM SnCart"
+                        
+                   };
+                   
+                   transporter.sendMail(mailOptions, (err, data) => {
+                       if (err) {
+                           return console.log('Error occurs');
+                       }
+                       return  console.log('Email sent!!!');
+                   });
+        
             }
 
         });
     }
+
+      
+    
 });
 
 

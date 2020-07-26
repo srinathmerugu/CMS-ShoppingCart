@@ -170,11 +170,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// app.listen(8800, function(){
-//   console.log("server running");
-// });
-
-app.listen(process.env.PORT , process.env.IP,function(){
-  console.log("SnCart Server Started");
+app.listen(8800, function(){
+  console.log("server running");
 });
+
+// app.listen(process.env.PORT , process.env.IP,function(){
+//   console.log("SnCart Server Started");
+// });
 module.exports = app;
