@@ -177,16 +177,7 @@ nav ul li a span.rotate{
 }
 .sidebar {
   z-index: 90;
-  
-  font-family: 'Poppins', sans-serif;
-  position: fixed;
-  width: 250px;
-  height: 100%;
-  left: -250px;
-  background: #1b1b1b;
-  transition: left 0.4s ease;
-  overflow:   scroll;
-  -webkit-transform: translate3d(5px,5px,5px);
-transform: translate3d(5px,5px,5px);
+  -webkit-transform: translate3d(0px,0px,0px);
+transform: translate3d(0px,0px,0px);
 }
 }
