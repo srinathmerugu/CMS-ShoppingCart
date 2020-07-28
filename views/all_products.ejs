@@ -26,9 +26,9 @@
                     <img src="/images/product_imgs/<%=p.id%>/<%=p.image%>" class="card-img-top" alt="...">
                 </a>
                 <div id="cardsbody" class="card-body">
-                    <a style="text-decoration: none !important; color: #0060B6;" href="/products/<%=p.category%>/<%=p.slug%>"> <h5 class="card-title"><%=p.title%></h5></a>
+                    <a class="card-title" style="text-decoration: none !important; color: #0060B6; font-size: 20px;" href="/products/<%=p.category%>/<%=p.slug%>"><%=p.title%></a> 
                   <p class="card-text">₹<%=parseFloat(p.price).toFixed(2)%></p>
-                  <a class="btn btn-sm btn-primary mt-0" href="/cart/add/<%=p.slug%>"><i class="fas fa-cart-plus"></i> ADD TO CART</a>
+                  <a class="btn btn-sm btn-primary" href="/cart/add/<%=p.slug%>"><i class="fas fa-cart-plus"></i> ADD TO CART</a>
 
                 </div>
             </div>
