@@ -21,10 +21,8 @@
             <table class="table">
                 <thead>
                   <tr class="text-center">
-                      
-                    
+                    <th scope="col">S.No</th>
                     <th scope="col">Order Id</th>
-                    <th scope="col">User</th>
                     <th scope="col">Product</th>
                     <th scope="col">Title</th>
                     <th scope="col">Quantity</th>
@@ -34,26 +32,26 @@
                 </thead>
                 <tbody>
                     
-                  <% var total = 0 %>
-                  <% var count = 1 %>
-                  <% orders.forEach(function(order,count) {%>
-                      <% order.cart.forEach(function(data) {%>
-                      
-                      <% var sub = (data.qty * data.price) %>
-                      <% total=+sub %> 
-                <tr class="text-center">
-                  <th scope="row"><%=order._id%></th>
-                  <th scope="row"><%=order.username%></th>
-                  <td><img src="<%=data.image%>" alt="" width="100px" height="100px"></td>
-                  <td><%=data.title%></td>
-                 
-                  <td><%=data.qty%></td>
-                  <td>₹<%=data.price%></td>
-                  <td> Rs.<%=total %></td>
-                </tr>
-                
-                <% }); %>
-                <% }); %>
+                    <% var total = 0 %>
+                    <% var num = 1 %>
+                    <% orders.forEach(function(order) {%>
+                        <% order.cart.forEach(function(data) {%>
+                            
+                        <% var sub = (data.qty * data.price) %>
+                        <% total=+sub %> 
+                  <tr class="text-center">
+                    <th scope="row"><%=num%></th>
+                    <th scope="row"><%=order._id%></th>
+                    <td><img src="<%=data.image%>" alt="" width="100px" height="100px"></td>
+                    <td><%=data.title%></td>
+                    <td><%=data.qty%></td>
+                    <td>₹<%=data.price%></td>
+                    <td> Rs.<%=total %></td>
+                    <%num++;%>
+                  </tr>
+                  
+                  <% }); %>
+                  <% }); %>
                 </tbody>
             </table>
         </div>

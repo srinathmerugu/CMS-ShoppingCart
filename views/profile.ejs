@@ -52,12 +52,12 @@
     </div>
 </div>
 
-<hr>
+
 <div class="row text-center" style="margin: 0 auto;">
     <div id="profile" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5 text-center">
-    
+        <hr>
 <% if(orders.length > 0) { %>
-<h1 class="mt-5 mb-5 font-weight-light " style=" margin: 0 auto;"><%=user.username.toUpperCase()%>'s ORDERS</h1>
+<h4 class="mt-2 mb-3 font-weight-light " style=" margin: 0 auto;"><%=user.username.toUpperCase()%>'s ORDERS</h4>
     <table class="table">
         <thead>
           <tr class="text-center">
@@ -74,9 +74,9 @@
             
             <% var total = 0 %>
             <% var num = 1 %>
-            <% orders.forEach(function(order,num) {%>
+            <% orders.forEach(function(order) {%>
                 <% order.cart.forEach(function(data) {%>
-                
+                    
                 <% var sub = (data.qty * data.price) %>
                 <% total=+sub %> 
           <tr class="text-center">
