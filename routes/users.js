@@ -243,14 +243,16 @@ router.post('/login', function (req, res, next) {
 
 
 router.get("/profile/:id/admin", isAdmin, function(req, res){
-    Order.find({},function(err, allOrders) {
+    Order.find(function(err, allOrders) {
       if (err) {
           req.flash("error", err.message);
+          console.log(err);
           res.redirect("back");
       } else {
-        User.find({},function(err, allUsers){
+        User.find(function(err, allUsers){
           if (err) {
               req.flash("error", err.message);
+              console.log(err);
               res.redirect("back");
             } else {
             return res.render("admin/admincontrolpanel", {orders: allOrders, users: allUsers});
@@ -260,7 +262,6 @@ router.get("/profile/:id/admin", isAdmin, function(req, res){
       
     });
   });
-
 
 
 

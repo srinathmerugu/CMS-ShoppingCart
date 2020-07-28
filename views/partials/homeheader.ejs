@@ -121,6 +121,8 @@
 
 <% if(user && user.admin ==1) { %>
 <li><a href="/admin/pages"><i class="fas fa-tools"></i> Dashboard</a></li>
+<li><a href="/users/profile/<%=user._id%>/admin"><i class="fas fa-wrench"></i> Controlpanel</a></li>
+
 <% } %>
 </ul>
 </nav>
