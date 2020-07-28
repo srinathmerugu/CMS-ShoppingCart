@@ -243,12 +243,12 @@ router.post('/login', function (req, res, next) {
 
 
 router.get("/profile/:id/admin", isAdmin, function(req, res){
-    Order.find(function(err, allOrders) {
+    Order.find({},function(err, allOrders) {
       if (err) {
           req.flash("error", err.message);
           res.redirect("back");
       } else {
-        User.find(function(err, allUsers){
+        User.find({},function(err, allUsers){
           if (err) {
               req.flash("error", err.message);
               res.redirect("back");

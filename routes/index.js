@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var nodemailer            = require("nodemailer");
 var Page          = require('../models/page');
 var User = require('../models/user');
 var Contact = require('../models/contact');
@@ -89,6 +89,33 @@ router.post('/contact',isUser, function(req,res){
       }
               req.flash('success', "Thankyou For Writing To Us");
               res.redirect('/contact');
+
+    
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+             user: "yelpcamp.srinathmerugu@gmail.com",
+             pass: "yelpcamp777"
+         }
+     });
+     const mailOptions = {
+       from: "yelpcamp.srinathmerugu@gmail.com", // sender address
+       to: "yelpcamp.srinathmerugu@gmail.com", // list of receivers
+       subject: req.body.contact.username+ "'s Feedback From SnCart",
+         text:"Hello You Have An Feedback From" + '\n' +
+         "User: " + req.body.contact.username+ '\n' +
+         "Email: " + req.body.contact.email+ '\n' +
+         "Feedback: " +req.body.contact.textarea+ '\n' 
+          
+          
+     };
+     
+     transporter.sendMail(mailOptions, (err, data) => {
+         if (err) {
+             return console.log('Error occurs');
+         }
+         return  console.log('Email sent!!!');
+     });
     });
 });
 

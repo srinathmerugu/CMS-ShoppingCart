@@ -57,11 +57,11 @@
     <div id="profile" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5 text-center">
     
 <% if(orders.length > 0) { %>
-<h1 class="mt-5 mb-5 font-weight-light " style=" margin: 0 auto;"><%=user.username%>'s ORDERS</h1>
+<h1 class="mt-5 mb-5 font-weight-light " style=" margin: 0 auto;"><%=user.username.toUpperCase()%>'s ORDERS</h1>
     <table class="table">
         <thead>
           <tr class="text-center">
-            <th scope="col">S.No</th>
+            <th scope="col">Order Id</th>
             <th scope="col">Product</th>
             <th scope="col">Title</th>
             <th scope="col">Quantity</th>
@@ -74,17 +74,20 @@
             <% var total = 0 %>
             <% var count = 1 %>
             <% orders.forEach(function(order,count) {%>
-                <% var sub = (order.cart[0].qty * order.cart[0].price) %>
+                <% order.cart.forEach(function(data) {%>
+                
+                <% var sub = (data.qty * data.price) %>
                 <% total=+sub %> 
           <tr class="text-center">
-            <th scope="row"><%=count%></th>
-            <td><img src="<%=order.cart[0].image%>" alt="" width="100px" height="100px"></td>
-            <td><%=order.cart[0].title%></td>
-            <td><%=order.cart[0].qty%></td>
-            <td>₹<%=order.cart[0].price%></td>
+            <th scope="row"><%=order._id%></th>
+            <td><img src="<%=data.image%>" alt="" width="100px" height="100px"></td>
+            <td><%=data.title%></td>
+            <td><%=data.qty%></td>
+            <td>₹<%=data.price%></td>
             <td> Rs.<%=total %></td>
           </tr>
           
+          <% }); %>
           <% }); %>
         </tbody>
     </table>
@@ -103,8 +106,7 @@
         <% } %>
         </div>
         
-
-
+        
 <script>
     $(function(){
    

@@ -4,7 +4,7 @@ var router = express.Router();
 var Product         = require('../models/products');
 var Category        = require('../models/category');
 var Order   = require('../models/order');
-const nodemailer            = require("nodemailer");
+var nodemailer            = require("nodemailer");
 
 var auth            = require('../config/auth');
 var isUser          = auth.isUser;
@@ -106,9 +106,7 @@ router.get('/update/:product', function (req, res) {
 router.get('/buynow',isUser, function (req, res) {
 
     var cart = req.session.cart;
-    var total = 0
-    var sub = (cart[0].qty * cart[0].price)
-    var total=+sub;
+    
     //var slug = req.params.product;
     var order = new Order({
         user : req.user,
@@ -132,6 +130,10 @@ router.get('/buynow',isUser, function (req, res) {
                pass: "yelpcamp777"
            }
        });
+       for(var i=0;i<cart.length;i++){
+        var total = 0
+        var sub = (cart[i].qty * cart[i].price)
+        var total=+sub;
        const mailOptions = {
          from: "yelpcamp.srinathmerugu@gmail.com", // sender address
          to: req.user.email, // list of receivers
@@ -139,14 +141,14 @@ router.get('/buynow',isUser, function (req, res) {
            text:"Hello " + req.user.username+ "," + '\n' + "Thanks for shopping with us" + '\n' + 
             "We really appreciate you coming in today. Have a great day :)" + '\n' +
             "Your Order-id: #" +order._id+   '\n' +
-            "Product: "+cart[0].title+   '\n' +
-            "Quantity: "+cart[0].qty+  '\n' +
-            "Price x 1: "+cart[0].price+   '\n' +
+            "Product: "+cart[i].title+   '\n' +
+            "Quantity: "+cart[i].qty+  '\n' +
+            "Price x 1: "+cart[i].price+   '\n' +
             "Total: "+total+   '\n' +
             "Regards" + '\n' +
             " TEAM SnCart" 
             
-            
+       
        };
        
        transporter.sendMail(mailOptions, (err, data) => {
@@ -155,8 +157,8 @@ router.get('/buynow',isUser, function (req, res) {
            }
            return  console.log('Email sent!!!');
        });
-   
-
+    
+    }
 });
 
 

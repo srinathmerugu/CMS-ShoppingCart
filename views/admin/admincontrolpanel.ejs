@@ -1,7 +1,7 @@
 <%- include("../partials/admin_header") %>
 
 
-   <h1 class="text-center  font-weight-light font-italic"> <i class="fas fa-wrench"></i> DASHBOARD</h1>
+   <h3 class="text-center  font-weight-light font-italic"> <i class="fas fa-wrench"></i> CONTROLPANEL</h3>
    <hr>
   <div class="row">
 
@@ -23,7 +23,6 @@
                   <tr class="text-center">
                       
                     
-                    <th scope="col">S.No</th>
                     <th scope="col">Order Id</th>
                     <th scope="col">User</th>
                     <th scope="col">Product</th>
@@ -35,29 +34,32 @@
                 </thead>
                 <tbody>
                     
-                    <% var total = 0 %>
-                    <% orders.forEach(function(order,count) {%>
-                        <% var sub = (order.cart[0].qty * order.cart[0].price) %>
-                        <% total=+sub %> 
-                  <tr class="text-center">
-                    <th scope="row"><%=count%></th>
-                    <th><%=order.id%></th>
-                    <th ><%=order.username%></th>
-                    <td><img src="<%=order.cart[0].image%>" alt="" width="100px" height="100px"></td>
-                    <td><%=order.cart[0].title%></td>
-                    <td><%=order.cart[0].qty%></td>
-                    <td>₹<%=order.cart[0].price%></td>
-                    <td> Rs.<%=total %></td>
-                  </tr>
-                  
-                  <% }); %>
+                  <% var total = 0 %>
+                  <% var count = 1 %>
+                  <% orders.forEach(function(order,count) {%>
+                      <% order.cart.forEach(function(data) {%>
+                      
+                      <% var sub = (data.qty * data.price) %>
+                      <% total=+sub %> 
+                <tr class="text-center">
+                  <th scope="row"><%=order._id%></th>
+                  <td><img src="<%=data.image%>" alt="" width="100px" height="100px"></td>
+                  <td><%=data.title%></td>
+                 
+                  <td><%=data.qty%></td>
+                  <td>₹<%=data.price%></td>
+                  <td> Rs.<%=total %></td>
+                </tr>
+                
+                <% }); %>
+                <% }); %>
                 </tbody>
             </table>
         </div>
       </div>
 <hr>
       <!-- Admin All User section -->
-      <div class="container" id="all_users" style="margin: 100px auto">
+      <div  id="all_users" style="margin: 100px auto">
 
         <h3 class="text-capitalize font-weight-normal font-italic">Users </h3>
         <hr>
