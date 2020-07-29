@@ -1,5 +1,5 @@
 # CMS-ShoppingCart
-Web app that allows users to view and order products. Made with Express.js and Node js
+Web app that allows users to view and order products. Made with HTML, CSS, JS, JQUERY, Express.js, Node.js, MongoDB
 
 ## Summary
 
