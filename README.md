@@ -43,3 +43,7 @@
 # ADMIN AREA-FEEDBACKS PAGE
 
 ![10](https://user-images.githubusercontent.com/62550907/88797220-9ca1d900-d1c0-11ea-999f-73c623d5f2ce.png)
+
+# DEV NOTES
+
+![Screenshot (64)](https://user-images.githubusercontent.com/62550907/88798390-72511b00-d1c2-11ea-86cc-c910ba1689eb.png)
