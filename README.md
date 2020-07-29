@@ -8,6 +8,7 @@ CMS ShoppingCart is a RESTful web-app I made using Node.js, MongoDB and express.
 **This website is not intended for public use.**
 
 - This Website is made with MongoDB, Nodejs, and Expressjs.
+- RESTful Routing with express and mongoose
 - User Authentication using Passportjs.
 - Styled with BOOTSRAP4.
 - ADMIN has full control over this website.
