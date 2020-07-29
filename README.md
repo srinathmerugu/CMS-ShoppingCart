@@ -1,4 +1,31 @@
 # CMS-ShoppingCart
+Web app that allows users to view and order products. Made with Express.js and Node js
+
+## Summary
+
+CMS ShoppingCart is a RESTful web-app I made using Node.js, MongoDB and express. 
+
+**This website is not intended for public use.**
+
+-This Website is made with MongoDB, Nodejs, and Expressjs.
+-User Authentication using Passportjs.
+-Styled with BOOTSRAP4.
+-ADMIN has full control over this website.
+-ADMIN can upload the products, manage categories and pages.
+-Only ADMIN has access to view ADMIN DASHBOARD where he can see all the orders, user profiles, feedback, etc.
+- Deployed on Heroku
+- A Fuzzy Search to search based on any category/product name/product color.
+- Database hosted on MongoDB
+- EJS for templating
+- Responsive Website Design using Bootstrap4.
+- User can edit,update his information and can delete his account
+
+#TESTING THE APP:
+  Test the functionality of the website by signing up and adding products to cart, or else you can use the below-mentioned test user account to login.
+
+  Username: user
+
+  Password: password
 
 # HOME-PAGE
 ![1](https://user-images.githubusercontent.com/62550907/88796824-f48c1000-d1bf-11ea-90c0-0574f1a398d2.png)
