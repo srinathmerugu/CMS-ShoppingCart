@@ -4,7 +4,7 @@ Web app that allows users to view and order products. Made with HTML, CSS, JAVAS
 
 ## Summary
 
-CMS ShoppingCart is a RESTful web-app I made using Node.js, Mongoose, MongoDB and express.js 
+CMS ShoppingCart is a RESTful web-app I made using Node.js, Mongoose, MongoDB and Express.js 
 
 **This website is not intended for public use.**
 
