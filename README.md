@@ -21,11 +21,9 @@ CMS ShoppingCart is a RESTful web-app I made using Node.js, MongoDB and express.
 - User can edit,update his information and can delete his account
 
 #TESTING THE APP:
-  Test the functionality of the website by signing up and adding products to cart, or else you can use the below-mentioned test user account to login.
-
-  Username: user
-
-  Password: password
+**Test the functionality of the website by signing up and adding products to cart, or else you can use the below-mentioned test user account to login.
+- Username: user
+- Password: password
 
 # HOME-PAGE
 ![1](https://user-images.githubusercontent.com/62550907/88796824-f48c1000-d1bf-11ea-90c0-0574f1a398d2.png)
